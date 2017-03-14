@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cdi-vE-Z1Y">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--FindAcro-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="AcroInputViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Abbrevation" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ELW-ta-k3F">
+                                <rect key="frame" x="16" y="92" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FdX-mM-wDt">
+                                <rect key="frame" x="163" y="160" width="48" height="30"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="searchButtonMethod:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YCo-7D-MAC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="FdX-mM-wDt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="163" id="3Cy-tB-IKT"/>
+                            <constraint firstAttribute="trailing" secondItem="ELW-ta-k3F" secondAttribute="trailing" constant="16" id="5Sb-vH-9MR"/>
+                            <constraint firstItem="ELW-ta-k3F" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="28" id="9hU-xo-Ht0"/>
+                            <constraint firstAttribute="trailing" secondItem="FdX-mM-wDt" secondAttribute="trailing" constant="164" id="Jwa-wF-MdR"/>
+                            <constraint firstItem="FdX-mM-wDt" firstAttribute="top" secondItem="ELW-ta-k3F" secondAttribute="bottom" constant="38" id="VbE-Fk-a4q"/>
+                            <constraint firstItem="ELW-ta-k3F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="Yxq-I0-Lae"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="FindAcro" id="Qcn-oJ-aI0"/>
+                    <connections>
+                        <outlet property="inputTextField" destination="ELW-ta-k3F" id="BQS-ze-7AL"/>
+                        <outlet property="searchButton" destination="FdX-mM-wDt" id="Fqw-61-7ER"/>
+                        <segue destination="E1G-Na-oHs" kind="show" identifier="AcroOutput" id="ICb-qc-gds"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+        </scene>
+        <!--Acro Output View Controller-->
+        <scene sceneID="mUe-1c-GGu">
+            <objects>
+                <viewController id="E1G-Na-oHs" customClass="AcroOutputViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a7H-y9-1rh"/>
+                        <viewControllerLayoutGuide type="bottom" id="GXo-ti-D0E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k1I-hf-Lz3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Find more acronym" translatesAutoresizingMaskIntoConstraints="NO" id="77B-JY-q02">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="E1G-Na-oHs" id="75f-n9-9CW"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sEd-p4-XFR">
+                                <rect key="frame" x="0.0" y="128" width="375" height="531"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="E1G-Na-oHs" id="oka-1M-fMd"/>
+                                    <outlet property="delegate" destination="E1G-Na-oHs" id="4eT-jW-RS0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="77B-JY-q02" secondAttribute="trailing" id="0vr-5S-E05"/>
+                            <constraint firstItem="sEd-p4-XFR" firstAttribute="top" secondItem="77B-JY-q02" secondAttribute="bottom" constant="12" id="Ifb-Lm-0Nj"/>
+                            <constraint firstItem="GXo-ti-D0E" firstAttribute="top" secondItem="sEd-p4-XFR" secondAttribute="bottom" constant="8" id="aaa-vZ-gmJ"/>
+                            <constraint firstItem="77B-JY-q02" firstAttribute="top" secondItem="a7H-y9-1rh" secondAttribute="bottom" constant="8" id="kvb-IZ-iQe"/>
+                            <constraint firstAttribute="trailing" secondItem="sEd-p4-XFR" secondAttribute="trailing" id="ny2-iE-xz5"/>
+                            <constraint firstItem="sEd-p4-XFR" firstAttribute="leading" secondItem="k1I-hf-Lz3" secondAttribute="leading" id="pwp-w1-eo3"/>
+                            <constraint firstItem="77B-JY-q02" firstAttribute="leading" secondItem="k1I-hf-Lz3" secondAttribute="leading" id="u7e-xC-zCY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="acroSearchBar" destination="77B-JY-q02" id="aU1-Vl-Qq1"/>
+                        <outlet property="outputTableView" destination="sEd-p4-XFR" id="HNW-lQ-Xo3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VUL-2x-7YL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1928.8" y="138.98050974512745"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BPq-MR-XfF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cdi-vE-Z1Y" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="upk-DW-MGk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="7fk-Ev-J7f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QpS-0u-NxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128.80000000000001" y="792.95352323838085"/>
+        </scene>
+    </scenes>
+</document>
